@@ -1,0 +1,31 @@
+// src/assets/scss/variables.scss
+
+// Цвета
+$blue: #1F91FF;
+$blue-30: rgba(31, 145, 255, 0.3);
+$white: #FFF;
+$green: #0DEF0D;
+$yellow: #FFD700;
+
+// Шрифты
+$font-family: 'Oswald', sans-serif;
+
+// Размеры
+$radius: 1.5vw;
+$h1: 32px;
+$h1-mob: 26px; 
+$h2: 28px; 
+$h2-mob: 24px; 
+$h3: 24px; 
+$h3-mob: 20px; 
+$h4: 20px; 
+$h4-mob: 18px; 
+$h5: 18px; 
+$h5-mob: 15px; 
+$h6: 16px; 
+$h6-mob: 12px; 
+
+// Другие глобальные переменные
+$margin: 30px auto;
+$max-wd: 1140px;
+$padding: 0 30px;

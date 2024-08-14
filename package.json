@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "sass-embedded": "^1.77.8",
+    "sass-embedded-darwin-arm64": "^1.77.8"
+  },
+  "dependencies": {
+    "vuex": "^4.0.2"
+  }
+}
