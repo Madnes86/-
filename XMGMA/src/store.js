@@ -9,14 +9,21 @@ const store = createStore({
     toggleEditMode(state) {
       state.isEditing = !state.isEditing;
     },
+    toggleDeleteMode(state) {
+      state.isDeleting = !state.isDeleting;
+    }
   },
   actions: {
     toggleEditMode({ commit }) {
       commit('toggleEditMode');
     },
+    toggleDeleteMode({ commit }) {
+      commit('toggleDeleteMode');
+    }
   },
   getters: {
     isEditing: (state) => state.isEditing,
+    isDeleting: (state) => state.isDeleting,
   },
 });
 

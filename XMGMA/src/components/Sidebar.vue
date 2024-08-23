@@ -1,19 +1,20 @@
 <template>
   <div class="sidebar">
-    <div class="burger col">
+    <div class="burger sidebar__item">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <img class="enter" src="@/assets/img/enter.png" alt="">
+    <img class="sidebar__item" src="@/assets/img/enter.png" alt="">
     <img 
-      class="settings" 
+      class="sidebar__item" 
       src="@/assets/img/settings.png" 
       @click="toggleEditMode" 
-      :class="{ active: isEditing }" 
       alt="settings"
     >
-    <News />
+    <img src="@/assets/img/rem.png" alt="Удалить" class="sidebar__item" v-if="isEditing" @click="toggleDeleteMode"
+    :style="{ filter: isDeleting ? 'grayscale(100%)' : 'none' }"
+    >
   </div>
 </template>
 
@@ -23,27 +24,39 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'Sidebar',
   computed: {
-    ...mapGetters(['isEditing']),
+    ...mapGetters(['isEditing', 'isDeleting']),
   },
   methods: {
-    ...mapActions(['toggleEditMode']),
+    ...mapActions(['toggleEditMode', 'toggleDeleteMode']),
   },
 }
 </script>
 
 <style lang="scss" scoped>
 
-.burger {
-  align-items: self-start;
-  position: absolute;
-  top: 35px;
-  right: 40px;
-  height: 32px;
-  width: 40px;
+.sidebar {
   display: flex;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  flex-direction: column;
+  z-index: 1000;
+
+  &__item {
+    cursor: pointer;
+    margin: 30px;
+    width: 40px;
+  }
+}
+
+.burger {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 32px;
 
   span {
-    background: #3498db;
+    background: $blue;
     border-radius: 4px;
     display: block;
     height: 5px;
@@ -53,24 +66,6 @@ export default {
       width: 28px;
     }
   }
-}
-
-.enter {
-  cursor: pointer;
-  position: absolute;
-  top: 110px;
-  right: 40px;
-  width: 40px;
-}
-.settings {
-  cursor: pointer;
-  position: absolute;
-  top: 195px;
-  right: 40px;
-  width: 40px;
-}
-.settings.active {
-  filter: contrast(80%);
 }
 @media (max-width: 600px) {
   .burger, .enter, .settings {

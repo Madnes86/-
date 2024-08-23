@@ -1,11 +1,19 @@
 // src/assets/scss/variables.scss
-
+@mixin hover {
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
 // Цвета
 $blue: #1F91FF;
 $blue-30: rgba(31, 145, 255, 0.3);
+$pink: #004F9B;
 $white: #FFF;
 $green: #0DEF0D;
 $yellow: #FFD700;
+$grey: #B2B3B3;
+$red: #d83232;
 
 // Шрифты
 $font-family: 'Oswald', sans-serif;
@@ -29,3 +37,58 @@ $h6-mob: 12px;
 $margin: 30px auto;
 $max-wd: 1140px;
 $padding: 0 30px;
+// GLOBAL CLASS
+.row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.col {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+}
+.isEditing {
+  background: $grey;
+  border-radius: $radius;
+  border: 1px solid #FFF;
+  padding: $radius;
+  margin: 10px;
+  max-width: 100%;
+}
+.isEditing {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.isEditing-button {
+  background: #{$white}50;
+  border-radius: $radius;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  margin: $radius;
+  padding: 5px 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  
+  @include hover; 
+  
+  &:last-child {
+    background: #{$green}50;
+    color: $green;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }
+  &:first-child {
+    background: #{$red}50;
+    color: $red;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }
+}
